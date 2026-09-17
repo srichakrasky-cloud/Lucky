@@ -1,15 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuckyPick Demo</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>LuckyPick Demo</title>
+
+
+<style>
+
+/* ===== BASIC ===== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background:
+    radial-gradient(
+        circle at top right,
+        #39215f 0,
+        #160d27 35%,
+        #090611 75%
+    );
+
+    color: white;
+
+    min-height: 100vh;
+}
+
+
+/* ===== HEADER ===== */
+
+.topbar {
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+    background:
+    rgba(8,5,15,.8);
+
+}
+
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+}
+
+
+.logo span {
+
+    color: #f5c451;
+
+    margin-right: 7px;
+
+}
+
+
+.demo-badge {
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    color: #f5c451;
+
+    border:
+    1px solid rgba(245,196,81,.4);
+
+    background:
+    rgba(245,196,81,.08);
+
+}
+
+
+/* ===== MAIN ===== */
+
+.container {
+
+    width: 92%;
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 45px 0 70px;
+
+}
+
+
+/* ===== HERO ===== */
+
+.hero {
+
+    padding: 25px 0 40px;
+
+}
+
+
+.small-title {
+
+    color: #f5c451;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.hero h1 {
+
+    font-size: 46px;
+
+    line-height: 1.1;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: #f5c451;
+
+}
+
+
+.hero-text {
+
+    margin-top: 15px;
+
+    color: #aaa2b8;
+
+    font-size: 15px;
+
+}
+
+
+/* ===== CARD ===== */
+
+.card {
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(45,26,72,.9),
+        rgba(19,12,30,.95)
+    );
+
+    border:
+    1px solid rgba(255,255,255,.09);
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.3);
+
+}
+
+
+/* ===== CARD TITLE ===== */
+
+.card-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+    rgba(245,196,81,.1);
+
+    border:
+    1px solid rgba(245,196,81,.25);
+
+}
+
+
+.card h2 {
+
+    font-size: 19px;
+
+}
+
+
+.card-title p {
+
+    color: #958da2;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+
+}
+
+
+/* ===== FORM ===== */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap: 18px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.field.full {
+
+    grid-column: 1 / -1;
+
+}
+
+
+label {
+
+    font-size: 12px;
+
+    color: #bcb4c7;
+
+    font-weight: 600;
+
+}
+
+
+input {
+
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border-radius: 11px;
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
+    outline: none;
+
+    background:
+    rgba(0,0,0,.25);
+
+    color: white;
+
+    font-size: 14px;
+
+}
+
+
+input::placeholder {
+
+    color: #6e6777;
+
+}
+
+
+input:focus {
+
+    border-color: #f5c451;
+
+}
+
+
+/* ===== BUTTON ===== */
+
+.primary-btn {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f7d36b,
+        #d99b27
+    );
+
+    color: #241600;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: .8px;
+
+    cursor: pointer;
+
+}
+
+
+/* ===== SUCCESS ===== */
+
+.success {
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background:
+    rgba(80,200,120,.08);
+
+    border:
+    1px solid rgba(80,200,120,.25);
+
+    color: #d8ffe4;
+
+    line-height: 1.8;
+
+}
+
+
+.success h3 {
+
+    color: #76e39b;
+
+    margin-bottom: 5px;
+
+}
+
+
+.warning {
+
+    color: #f5c451;
+
+    font-size: 12px;
+
+    margin-top: 8px;
+
+}
+
+
+/* ===== ERROR ===== */
+
+.error {
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background:
+    rgba(255,80,80,.08);
+
+    border:
+    1px solid rgba(255,80,80,.25);
+
+    color: #ffaaaa;
+
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:700px) {
+
+    .container {
+
+        width: 94%;
+
+        padding-top: 25px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 36px;
+
+    }
+
+
+    .card {
+
+        padding: 22px;
+
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .field.full {
+
+        grid-column: auto;
+
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
+
+<!-- HEADER -->
+
 <header class="topbar">
+
     <div class="logo">
         <span>★</span> LuckyPick
     </div>
@@ -17,250 +491,403 @@
     <div class="demo-badge">
         DEMO
     </div>
+
 </header>
+
 
 
 <main class="container">
 
-    <!-- HERO -->
 
-    <section class="hero">
+<!-- HERO -->
+
+<section class="hero">
+
+    <p class="small-title">
+        WELCOME TO
+    </p>
+
+    <h1>
+        LuckyPick
+        <span>Number Game</span>
+    </h1>
+
+    <p class="hero-text">
+        Create your profile and enter
+        the demo number game.
+    </p>
+
+</section>
+
+
+
+<!-- REGISTER -->
+
+<section class="card">
+
+
+    <div class="card-title">
+
+        <div class="icon">
+            👤
+        </div>
+
         <div>
-            <p class="small-title">WELCOME TO</p>
 
-            <h1>
-                LuckyPick
-                <span>Number Game</span>
-            </h1>
+            <h2>
+                Create Profile
+            </h2>
 
-            <p class="hero-text">
-                Create your profile and enter the demo number game.
+            <p>
+                First-time customers can register here
             </p>
-        </div>
-    </section>
 
-
-    <!-- REGISTER -->
-
-    <section class="card">
-
-        <div class="card-title">
-            <div class="icon">👤</div>
-
-            <div>
-                <h2>Create Profile</h2>
-                <p>First-time customers can register here</p>
-            </div>
         </div>
 
-
-        <div class="form-grid">
-
-            <div class="field">
-                <label>Full Name</label>
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter your name">
-            </div>
+    </div>
 
 
-            <div class="field">
-                <label>Mobile Number</label>
-                <input
-                    type="tel"
-                    id="mobile"
-                    placeholder="Enter mobile number">
-            </div>
+
+    <div class="form-grid">
 
 
-            <div class="field">
-                <label>Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter email">
-            </div>
+        <div class="field">
 
+            <label>
+                Full Name
+            </label>
 
-            <div class="field">
-                <label>Account Details</label>
-                <input
-                    type="text"
-                    id="account"
-                    placeholder="Enter account details">
-            </div>
-
-
-            <div class="field full">
-                <label>UPI ID</label>
-                <input
-                    type="text"
-                    id="upi"
-                    placeholder="Enter UPI ID">
-            </div>
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name">
 
         </div>
 
 
-        <button class="primary-btn" onclick="saveProfile()">
-            SAVE PROFILE
-        </button>
 
+        <div class="field">
 
-        <div id="profileMessage"></div>
+            <label>
+                Mobile Number
+            </label>
 
-    </section>
-
-
-
-    <!-- LOGIN -->
-
-    <section class="card">
-
-        <div class="card-title">
-
-            <div class="icon">🔐</div>
-
-            <div>
-                <h2>Customer Login</h2>
-                <p>Already registered? Login here</p>
-            </div>
+            <input
+                type="tel"
+                id="mobile"
+                placeholder="Enter mobile number">
 
         </div>
 
 
-        <div class="form-grid">
 
-            <div class="field">
+        <div class="field">
 
-                <label>Mobile Number</label>
+            <label>
+                Email
+            </label>
 
-                <input
-                    type="tel"
-                    id="loginMobile"
-                    placeholder="Mobile number">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>Password</label>
-
-                <input
-                    type="password"
-                    id="loginPassword"
-                    placeholder="Password">
-
-            </div>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter email">
 
         </div>
 
 
-        <button class="primary-btn" onclick="customerLogin()">
-            LOGIN
-        </button>
+
+        <div class="field">
+
+            <label>
+                Age
+            </label>
+
+            <input
+                type="number"
+                id="age"
+                placeholder="Age">
+
+        </div>
 
 
-        <div id="loginMessage"></div>
 
-    </section>
+        <div class="field full">
+
+            <label>
+                Account Details (Demo)
+            </label>
+
+            <input
+                type="text"
+                id="account"
+                placeholder="Enter account details">
+
+        </div>
+
+
+
+        <div class="field full">
+
+            <label>
+                UPI ID (Demo)
+            </label>
+
+            <input
+                type="text"
+                id="upi"
+                placeholder="Enter UPI ID">
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- SAVE PROFILE -->
+
+    <button
+        class="primary-btn"
+        onclick="saveProfile()">
+
+        SAVE PROFILE
+
+    </button>
+
+
+    <div id="profileMessage"></div>
+
+
+</section>
+
+
+
+<!-- LOGIN -->
+
+<section class="card">
+
+
+    <div class="card-title">
+
+        <div class="icon">
+            🔐
+        </div>
+
+        <div>
+
+            <h2>
+                Customer Login
+            </h2>
+
+            <p>
+                Already registered? Login here
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="form-grid">
+
+
+        <div class="field">
+
+            <label>
+                Mobile Number
+            </label>
+
+            <input
+                type="tel"
+                id="loginMobile"
+                placeholder="Mobile number">
+
+        </div>
+
+
+
+        <div class="field">
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password">
+
+        </div>
+
+
+    </div>
+
+
+
+    <button
+        class="primary-btn"
+        onclick="customerLogin()">
+
+        LOGIN
+
+    </button>
+
+
+    <div id="loginMessage"></div>
+
+
+</section>
 
 
 </main>
 
 
+
 <script>
+
+
+/* =========================
+   CUSTOMER ID
+========================= */
 
 function generateCustomerId() {
 
-    let number =
-        Math.floor(10000 + Math.random() * 90000);
+    return "LP" +
+    Math.floor(
+        10000 +
+        Math.random() * 90000
+    );
 
-    return "LP" + number;
 }
 
+
+/* =========================
+   PASSWORD
+========================= */
 
 function generatePassword() {
 
-    let chars =
-        "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    const chars =
+    "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
     let password = "";
 
-    for (let i = 0; i < 6; i++) {
+    for(let i=0;i<6;i++) {
 
         password +=
-            chars.charAt(
-                Math.floor(Math.random() * chars.length)
-            );
+        chars.charAt(
+            Math.floor(
+                Math.random() *
+                chars.length
+            )
+        );
+
     }
 
     return password;
+
 }
 
 
+/* =========================
+   SAVE PROFILE
+========================= */
+
 function saveProfile() {
 
+
     const name =
-        document.getElementById("name").value.trim();
+    document.getElementById("name")
+    .value.trim();
+
 
     const mobile =
-        document.getElementById("mobile").value.trim();
+    document.getElementById("mobile")
+    .value.trim();
+
 
     const email =
-        document.getElementById("email").value.trim();
+    document.getElementById("email")
+    .value.trim();
+
+
+    const age =
+    document.getElementById("age")
+    .value.trim();
+
 
     const account =
-        document.getElementById("account").value.trim();
+    document.getElementById("account")
+    .value.trim();
+
 
     const upi =
-        document.getElementById("upi").value.trim();
+    document.getElementById("upi")
+    .value.trim();
 
 
-    if (!name || !mobile) {
 
-        document.getElementById("profileMessage").innerHTML =
-            `<div class="error">
-                Please enter your name and mobile number.
-             </div>`;
+    if(!name || !mobile || !age) {
+
+        document.getElementById(
+            "profileMessage"
+        ).innerHTML =
+
+        `<div class="error">
+            Please enter Name, Mobile and Age.
+        </div>`;
 
         return;
+
     }
+
 
 
     let customers =
-        JSON.parse(
-            localStorage.getItem("customers") || "[]"
-        );
+    JSON.parse(
+        localStorage.getItem(
+            "customers"
+        ) || "[]"
+    );
+
 
 
     const existing =
-        customers.find(c => c.mobile === mobile);
+    customers.find(
+        c => c.mobile === mobile
+    );
 
 
-    if (existing) {
 
-        document.getElementById("profileMessage").innerHTML =
-            `<div class="error">
-                This mobile number is already registered.
-             </div>`;
+    if(existing) {
+
+        document.getElementById(
+            "profileMessage"
+        ).innerHTML =
+
+        `<div class="error">
+            This mobile number is already registered.
+        </div>`;
 
         return;
+
     }
 
 
+
     const customerId =
-        generateCustomerId();
+    generateCustomerId();
+
 
     const password =
-        generatePassword();
+    generatePassword();
+
 
 
     const customer = {
 
-        id: customerId,
+        customerId: customerId,
 
         name: name,
 
@@ -268,18 +895,23 @@ function saveProfile() {
 
         email: email,
 
+        age: age,
+
         account: account,
 
         upi: upi,
 
         password: password,
 
-        createdAt: new Date().toISOString()
+        createdAt:
+        new Date().toLocaleString()
 
     };
 
 
+
     customers.push(customer);
+
 
 
     localStorage.setItem(
@@ -288,66 +920,89 @@ function saveProfile() {
     );
 
 
-    document.getElementById("profileMessage").innerHTML =
 
-        `<div class="success">
+    document.getElementById(
+        "profileMessage"
+    ).innerHTML =
 
-            <h3>Profile Saved Successfully</h3>
+    `<div class="success">
 
-            <p>
-                Your customer login details are:
-            </p>
+        <h3>
+            Profile Saved Successfully
+        </h3>
 
-            <strong>Customer ID:</strong>
-            ${customerId}
+        <b>Customer ID:</b>
+        ${customerId}
 
-            <br>
+        <br>
 
-            <strong>Password:</strong>
-            ${password}
+        <b>Password:</b>
+        ${password}
 
-            <p class="warning">
-                Please keep these details safe.
-            </p>
+        <p class="warning">
+            Please save these login details.
+        </p>
 
-        </div>`;
+    </div>`;
+
 }
 
 
 
+/* =========================
+   LOGIN
+========================= */
+
 function customerLogin() {
 
+
     const mobile =
-        document.getElementById("loginMobile").value.trim();
+    document.getElementById(
+        "loginMobile"
+    ).value.trim();
+
 
     const password =
-        document.getElementById("loginPassword").value.trim();
+    document.getElementById(
+        "loginPassword"
+    ).value.trim();
+
 
 
     let customers =
-        JSON.parse(
-            localStorage.getItem("customers") || "[]"
-        );
+    JSON.parse(
+        localStorage.getItem(
+            "customers"
+        ) || "[]"
+    );
+
 
 
     const customer =
-        customers.find(
-            c =>
-                c.mobile === mobile &&
-                c.password === password
-        );
+    customers.find(
+
+        c =>
+        c.mobile === mobile &&
+        c.password === password
+
+    );
 
 
-    if (!customer) {
 
-        document.getElementById("loginMessage").innerHTML =
+    if(!customer) {
 
-            `<div class="error">
-                Invalid mobile number or password.
-             </div>`;
+        document.getElementById(
+            "loginMessage"
+        ).innerHTML =
+
+        `<div class="error">
+            Invalid mobile number or password.
+        </div>`;
 
         return;
+
     }
+
 
 
     localStorage.setItem(
@@ -356,11 +1011,20 @@ function customerLogin() {
     );
 
 
+
+    /*
+       For now this is the next page.
+       We will create customer.html next.
+    */
+
     window.location.href =
-        "customer.html";
+    "customer.html";
+
 }
 
+
 </script>
+
 
 </body>
 </html>
