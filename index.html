@@ -1142,6 +1142,19 @@ function loginCustomer(){
 
 }
 
+const urlParams =
+    new URLSearchParams(window.location.search);
+
+const referralFromLink =
+    urlParams.get("ref");
+
+if(referralFromLink){
+
+    document.getElementById("referral").value =
+        referralFromLink;
+
+}    
+
 </script>
 
 
