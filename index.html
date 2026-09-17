@@ -4,327 +4,507 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LuckyPick - Customer Registration</title>
+<title>LuckyPick - Register</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #18052f, #35106b, #17052b);
-    color: white;
-    padding: 20px;
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+
+    background:
+    radial-gradient(circle at 15% 15%,rgba(166,76,255,.35),transparent 30%),
+    radial-gradient(circle at 85% 85%,rgba(255,205,70,.16),transparent 30%),
+    linear-gradient(135deg,#10021f,#260449,#0d0119);
+
+    color:white;
 }
 
-.container {
-    max-width: 500px;
-    margin: 30px auto;
+.container{
+    width:100%;
+    max-width:430px;
 }
 
-.logo {
-    text-align: center;
-    margin-bottom: 25px;
+/* LOGO */
+
+.logo{
+    text-align:center;
+    margin-bottom:25px;
 }
 
-.logo h1 {
-    font-size: 32px;
-    color: #ffd75a;
-    letter-spacing: 1px;
+.logo-box{
+    width:70px;
+    height:70px;
+    margin:0 auto 13px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:21px;
+
+    background:linear-gradient(145deg,#ffe06a,#ffb52e);
+
+    color:#351052;
+    font-size:29px;
+    font-weight:900;
+
+    transform:rotate(-3deg);
+
+    box-shadow:
+    0 0 28px rgba(255,210,80,.35),
+    0 12px 35px rgba(0,0,0,.4);
 }
 
-.logo p {
-    color: #d8cbea;
-    margin-top: 5px;
-    font-size: 14px;
+.logo h1{
+    font-size:35px;
+    letter-spacing:2px;
+    font-weight:900;
+
+    background:linear-gradient(90deg,#fff,#ffd75a);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.card {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,215,90,0.35);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-    backdrop-filter: blur(10px);
+.logo p{
+    margin-top:5px;
+    color:#c6b3d9;
+    font-size:12px;
+    letter-spacing:1px;
 }
 
-.card h2 {
-    text-align: center;
-    color: #ffd75a;
-    margin-bottom: 22px;
+.badge{
+    display:inline-block;
+    margin-top:10px;
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,215,90,.35);
+    background:rgba(255,215,90,.09);
+
+    color:#ffd75a;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:1px;
 }
 
-.form-group {
-    margin-bottom: 16px;
+
+/* CARD */
+
+.card{
+    padding:29px 26px;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,.045)
+    );
+
+    border:1px solid rgba(255,215,90,.25);
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.5),
+    inset 0 1px rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
 }
 
-label {
-    display: block;
-    margin-bottom: 7px;
-    color: #eee;
-    font-size: 14px;
+.card h2{
+    text-align:center;
+    font-size:23px;
+    margin-bottom:7px;
 }
 
-input {
-    width: 100%;
-    padding: 13px 14px;
-    border-radius: 10px;
-    border: 1px solid #76559e;
-    background: rgba(255,255,255,0.10);
-    color: white;
-    font-size: 15px;
-    outline: none;
+.subtitle{
+    text-align:center;
+    color:#bca9d0;
+    font-size:13px;
+    margin-bottom:25px;
 }
 
-input:focus {
-    border-color: #ffd75a;
+
+/* INPUT */
+
+.group{
+    margin-bottom:17px;
 }
 
-input::placeholder {
-    color: #bcaed0;
+label{
+    display:block;
+    margin-bottom:8px;
+
+    color:#e8deef;
+    font-size:13px;
+    font-weight:600;
 }
 
-.save-btn {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(90deg, #ffd75a, #ffb52e);
-    color: #241039;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 8px;
+.input{
+    width:100%;
+    height:52px;
+
+    padding:0 15px;
+
+    border-radius:13px;
+
+    border:1px solid rgba(174,127,220,.35);
+
+    background:rgba(18,3,34,.58);
+
+    color:white;
+
+    outline:none;
+
+    font-size:14px;
+
+    transition:.25s;
 }
 
-.save-btn:hover {
-    transform: translateY(-1px);
+.input:focus{
+    border-color:#ffd75a;
+
+    box-shadow:
+    0 0 0 3px rgba(255,215,90,.07),
+    0 0 20px rgba(255,215,90,.08);
 }
 
-.message {
-    display: none;
-    margin-top: 20px;
-    padding: 18px;
-    border-radius: 12px;
-    background: rgba(40, 200, 120, 0.15);
-    border: 1px solid #42d692;
+.input::placeholder{
+    color:#806f91;
 }
 
-.message h3 {
-    color: #63e6a3;
-    margin-bottom: 12px;
+
+/* REFERRAL */
+
+.referral-box{
+    position:relative;
 }
 
-.login-info {
-    line-height: 1.9;
-    font-size: 14px;
+.referral-box .input{
+    border-color:rgba(255,215,90,.35);
+    background:rgba(255,195,55,.055);
 }
 
-.login-info strong {
-    color: #ffd75a;
+.referral-label{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.login-btn {
-    width: 100%;
-    padding: 13px;
-    margin-top: 15px;
-    border: 1px solid #ffd75a;
-    border-radius: 10px;
-    background: transparent;
-    color: #ffd75a;
-    font-weight: bold;
-    cursor: pointer;
+.demo-text{
+    font-size:10px;
+    color:#ffd75a;
 }
 
-.login-btn:hover {
-    background: rgba(255,215,90,0.1);
+
+/* REGISTER BUTTON */
+
+.register-btn{
+    width:100%;
+    height:54px;
+
+    margin-top:5px;
+
+    border:0;
+    border-radius:14px;
+
+    background:
+    linear-gradient(90deg,#ffd95a,#ffb52e);
+
+    color:#28103b;
+
+    font-size:15px;
+    font-weight:900;
+
+    letter-spacing:.6px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 10px 28px rgba(255,185,45,.22);
+
+    transition:.25s;
 }
 
-.login-section {
-    display: none;
+.register-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 15px 35px rgba(255,185,45,.32);
 }
 
-.error {
-    color: #ff8d8d;
-    font-size: 13px;
-    margin-top: 5px;
+
+/* LOGIN */
+
+.login{
+    text-align:center;
+
+    margin-top:22px;
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#bca9d0;
+    font-size:13px;
 }
 
-.note {
-    margin-top: 15px;
-    text-align: center;
-    color: #bcaed0;
-    font-size: 12px;
-    line-height: 1.5;
+.login span{
+    color:#ffd75a;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+/* MESSAGE */
+
+.message{
+    display:none;
+
+    margin-top:18px;
+    padding:15px;
+
+    border-radius:12px;
+
+    background:rgba(45,200,120,.10);
+    border:1px solid rgba(65,220,145,.3);
+
+    color:#72e8ac;
+
+    text-align:center;
+
+    font-size:13px;
+}
+
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:18px;
+
+    color:#75627f;
+    font-size:10px;
+    line-height:1.5;
+}
+
+
+@media(max-width:480px){
+
+    body{
+        padding:15px;
+    }
+
+    .logo h1{
+        font-size:31px;
+    }
+
+    .logo-box{
+        width:63px;
+        height:63px;
+    }
+
+    .card{
+        padding:26px 21px;
+        border-radius:22px;
+    }
 }
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
+    <!-- LOGO -->
+
     <div class="logo">
+
+        <div class="logo-box">
+            LP
+        </div>
+
         <h1>LUCKYPICK</h1>
-        <p>Customer Registration</p>
+
+        <p>YOUR NUMBER • YOUR CHOICE</p>
+
+        <span class="badge">
+            DEMO VERSION
+        </span>
+
     </div>
 
-    <!-- REGISTRATION -->
-    <div class="card" id="registerCard">
 
-        <h2>Create Account</h2>
+    <!-- REGISTER CARD -->
 
-        <form id="registerForm">
+    <div class="card">
 
-            <div class="form-group">
-                <label>Full Name</label>
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter your full name"
-                    required
-                >
-            </div>
+        <h2>Create Your Account</h2>
 
-            <div class="form-group">
-                <label>Mobile Number</label>
-                <input
-                    type="tel"
-                    id="mobile"
-                    placeholder="Enter 10 digit mobile number"
-                    maxlength="10"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label>UPI ID</label>
-                <input
-                    type="text"
-                    id="upi"
-                    placeholder="example@upi"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label>Account Number</label>
-                <input
-                    type="text"
-                    id="account"
-                    placeholder="Enter account number"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label>IFSC Code</label>
-                <input
-                    type="text"
-                    id="ifsc"
-                    placeholder="Enter IFSC code"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label>Create Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Create your password"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input
-                    type="password"
-                    id="confirmPassword"
-                    placeholder="Re-enter your password"
-                    required
-                >
-                <div class="error" id="passwordError"></div>
-            </div>
-
-            <button type="submit" class="save-btn">
-                SAVE PROFILE
-            </button>
-
-        </form>
-
-        <div class="note">
-            Please remember your mobile number and password for login.
+        <div class="subtitle">
+            Enter your details to get started
         </div>
 
-    </div>
 
+        <!-- REFERRAL -->
 
-    <!-- SAVED SUCCESS -->
-    <div class="card message" id="successCard">
+        <div class="group referral-box">
 
-        <h3>✓ Profile Saved Successfully</h3>
+            <div class="referral-label">
 
-        <div class="login-info">
+                <label>Referral Code</label>
 
-            <div>
-                <strong>Customer ID:</strong>
-                <span id="customerId"></span>
+                <span class="demo-text">
+                    OPTIONAL
+                </span>
+
             </div>
 
-            <div>
-                <strong>Mobile Number:</strong>
-                <span id="savedMobile"></span>
-            </div>
-
-            <div>
-                <strong>Password:</strong>
-                <span id="savedPassword"></span>
-            </div>
+            <input
+                class="input"
+                type="text"
+                id="referral"
+                placeholder="Enter referral code"
+                maxlength="20"
+            >
 
         </div>
 
-        <button class="login-btn" onclick="showLogin()">
-            GO TO LOGIN
-        </button>
 
-    </div>
+        <!-- NAME -->
+
+        <div class="group">
+
+            <label>Full Name</label>
+
+            <input
+                class="input"
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+            >
+
+        </div>
 
 
-    <!-- LOGIN -->
-    <div class="card login-section" id="loginCard">
+        <!-- MOBILE -->
 
-        <h2>Customer Login</h2>
+        <div class="group">
 
-        <div class="form-group">
             <label>Mobile Number</label>
+
             <input
+                class="input"
                 type="tel"
-                id="loginMobile"
+                id="mobile"
                 maxlength="10"
-                placeholder="Enter mobile number"
+                placeholder="Enter 10 digit mobile number"
             >
+
         </div>
 
-        <div class="form-group">
-            <label>Password</label>
+
+        <!-- PASSWORD -->
+
+        <div class="group">
+
+            <label>Create Password</label>
+
             <input
+                class="input"
                 type="password"
-                id="loginPassword"
-                placeholder="Enter password"
+                id="password"
+                placeholder="Create your password"
             >
+
         </div>
 
-        <div class="error" id="loginError"></div>
 
-        <button class="save-btn" onclick="loginCustomer()">
-            LOGIN
+        <!-- CONFIRM PASSWORD -->
+
+        <div class="group">
+
+            <label>Confirm Password</label>
+
+            <input
+                class="input"
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+            >
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div
+            id="error"
+            style="
+            display:none;
+            color:#ff929d;
+            background:rgba(255,70,90,.08);
+            border:1px solid rgba(255,90,100,.2);
+            padding:10px;
+            border-radius:10px;
+            font-size:12px;
+            text-align:center;
+            margin-bottom:15px;
+            "
+        ></div>
+
+
+        <!-- REGISTER -->
+
+        <button
+            class="register-btn"
+            onclick="registerCustomer()"
+        >
+            CREATE ACCOUNT
         </button>
+
+
+        <!-- LOGIN -->
+
+        <div class="login">
+
+            Already have an account?
+
+            <span onclick="goLogin()">
+                Login Here
+            </span>
+
+        </div>
+
+
+        <!-- SUCCESS -->
+
+        <div
+            class="message"
+            id="success"
+        >
+            ✓ Account created successfully
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+
+        LuckyPick Demo • Customer Portal<br>
+        For demonstration purposes only
 
     </div>
 
@@ -333,15 +513,10 @@ input::placeholder {
 
 <script>
 
-let customers =
-    JSON.parse(localStorage.getItem("luckyPickCustomers")) || [];
+function registerCustomer(){
 
-
-/* REGISTER */
-
-document.getElementById("registerForm").addEventListener("submit", function(e) {
-
-    e.preventDefault();
+    const referral =
+        document.getElementById("referral").value.trim();
 
     const name =
         document.getElementById("name").value.trim();
@@ -349,93 +524,115 @@ document.getElementById("registerForm").addEventListener("submit", function(e) {
     const mobile =
         document.getElementById("mobile").value.trim();
 
-    const upi =
-        document.getElementById("upi").value.trim();
-
-    const account =
-        document.getElementById("account").value.trim();
-
-    const ifsc =
-        document.getElementById("ifsc").value.trim();
-
     const password =
         document.getElementById("password").value;
 
     const confirmPassword =
         document.getElementById("confirmPassword").value;
 
-    const passwordError =
-        document.getElementById("passwordError");
-
-    passwordError.textContent = "";
+    const error =
+        document.getElementById("error");
 
 
-    /* MOBILE VALIDATION */
-
-    if (!/^[0-9]{10}$/.test(mobile)) {
-
-        passwordError.textContent =
-            "Please enter a valid 10 digit mobile number.";
-
-        return;
-    }
+    error.style.display = "none";
 
 
-    /* PASSWORD MATCH */
+    if(!name || !mobile || !password || !confirmPassword){
 
-    if (password !== confirmPassword) {
+        error.textContent =
+        "Please fill all required details.";
 
-        passwordError.textContent =
-            "Passwords do not match.";
+        error.style.display = "block";
 
         return;
     }
 
 
-    /* CHECK EXISTING MOBILE */
+    if(!/^[0-9]{10}$/.test(mobile)){
+
+        error.textContent =
+        "Please enter a valid 10 digit mobile number.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+
+    if(password.length < 6){
+
+        error.textContent =
+        "Password must contain at least 6 characters.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+
+    if(password !== confirmPassword){
+
+        error.textContent =
+        "Passwords do not match.";
+
+        error.style.display = "block";
+
+        return;
+    }
+
+
+    let customers =
+    JSON.parse(
+        localStorage.getItem("luckyPickCustomers")
+    ) || [];
+
 
     const existing =
-        customers.find(c => c.mobile === mobile);
+    customers.find(
+        customer => customer.mobile === mobile
+    );
 
-    if (existing) {
 
-        passwordError.textContent =
-            "This mobile number is already registered.";
+    if(existing){
+
+        error.textContent =
+        "This mobile number is already registered.";
+
+        error.style.display = "block";
 
         return;
     }
 
 
-    /* CUSTOMER ID */
+    /* DEMO CUSTOMER ID */
 
     const customerId =
-        "LP" + Math.floor(10000 + Math.random() * 90000);
+    "LP" +
+    Math.floor(
+        10000 + Math.random() * 90000
+    );
 
-
-    /* CUSTOMER DATA */
 
     const customer = {
 
         customerId: customerId,
 
+        referralCode: referral,
+
         name: name,
 
         mobile: mobile,
 
-        upi: upi,
-
-        account: account,
-
-        ifsc: ifsc,
-
         password: password,
 
-        createdAt: new Date().toISOString()
+        createdAt:
+        new Date().toISOString()
 
     };
 
 
     customers.push(customer);
+
 
     localStorage.setItem(
         "luckyPickCustomers",
@@ -443,106 +640,23 @@ document.getElementById("registerForm").addEventListener("submit", function(e) {
     );
 
 
-    /* SHOW LOGIN DETAILS */
-
-    document.getElementById("customerId").textContent =
-        customerId;
-
-    document.getElementById("savedMobile").textContent =
-        mobile;
-
-    document.getElementById("savedPassword").textContent =
-        password;
+    document.getElementById("success").style.display =
+    "block";
 
 
-    document.getElementById("registerCard").style.display =
-        "none";
+    alert(
+        "Registration Successful!\n\n" +
+        "Customer ID: " + customerId +
+        "\nMobile: " + mobile
+    );
 
-    document.getElementById("successCard").style.display =
-        "block";
-
-});
-
-
-/* SHOW LOGIN */
-
-function showLogin() {
-
-    document.getElementById("successCard").style.display =
-        "none";
-
-    document.getElementById("loginCard").style.display =
-        "block";
-
-
-    /* AUTO FILL MOBILE + PASSWORD */
-
-    const mobile =
-        document.getElementById("savedMobile").textContent;
-
-    const password =
-        document.getElementById("savedPassword").textContent;
-
-
-    document.getElementById("loginMobile").value =
-        mobile;
-
-    document.getElementById("loginPassword").value =
-        password;
 }
 
 
-/* LOGIN */
-
-function loginCustomer() {
-
-    const mobile =
-        document.getElementById("loginMobile").value.trim();
-
-    const password =
-        document.getElementById("loginPassword").value;
-
-    const loginError =
-        document.getElementById("loginError");
-
-
-    loginError.textContent = "";
-
-
-    const customer =
-        customers.find(
-            c =>
-            c.mobile === mobile &&
-            c.password === password
-        );
-
-
-    if (!customer) {
-
-        loginError.textContent =
-            "Invalid mobile number or password.";
-
-        return;
-    }
-
-
-    /* SAVE LOGGED CUSTOMER */
-
-    localStorage.setItem(
-        "loggedCustomer",
-        JSON.stringify(customer)
-    );
-
-
-    /*
-       TEMPORARY DASHBOARD MESSAGE
-
-       Dashboard code will be connected here.
-    */
+function goLogin(){
 
     alert(
-        "Login successful!\n\nWelcome " +
-        customer.name
+        "Login page will be connected here."
     );
 
 }
